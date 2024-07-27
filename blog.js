@@ -62,7 +62,7 @@ const createBlog = (link, title, description) => {
 
 createButton.addEventListener("click", () => {
     // Prompt user for blog details
-    const link = prompt("Enter the blog link to create it");
+    const link = prompt("Enter the blog link to post in this page");
     const title = prompt("Enter blog title");
     const description = prompt("Enter blog description");
 
