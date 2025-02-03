@@ -1,0 +1,26 @@
+<%layout("layouts/boilerplate")%>
+<div class="container mt-5 mb-5">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+    <% for(let blog of blogs){ %>
+    <div class="col">
+      <div class="card">
+        <img
+          src="<%= blog.image %>?auto=format&fit=crop&w=300&h=200&q=70"
+          class="card-img-top"
+          alt="blog img"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title"><%=blog.title%></h5>
+
+          <p class="card-text"><%= blog.description.slice(0, 110) %>...</p>
+
+          <a href="/blog/<%= blog.id %>" class="btn btn-primary btn-sm"
+            >Read more</a
+          >
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

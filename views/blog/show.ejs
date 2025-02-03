@@ -1,0 +1,20 @@
+<% layout("layouts/boilerplate") %>
+<div class="container mt-4 mb-4 d-flex justify-content-center">
+  <div class="col-md-7">
+    <h1><%= myBlog.title %></h1>
+    <img
+      src="<%= myBlog.image %>?auto=format&fit=crop&&h=500&q=70"
+      class="img-fluid rounded custom-image"
+      alt="Image"
+    />
+    <p class="mt-3"><%= myBlog.description %></p>
+    <%if(currUser&&currUser._id.equals(myBlog.owner._id)) {%>
+    <div class="d-flex">
+      <a href="/blog/<%= myBlog.id %>/edit" class="btn btn-danger me-2">Edit</a>
+      <form method="POST" action="/blog/<%=myBlog._id%>?_method=DELETE">
+        <button class="btn btn-dark" type="submit">Delete</button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+</div>

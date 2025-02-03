@@ -1,0 +1,54 @@
+<% layout("layouts/boilerplate") %>
+<div class="container vh-100 d-flex mt-4 justify-content-center">
+  <div class="col-10 col-md-6">
+    <div class="text-center mb-4">
+      <h2>Create a Blog</h2>
+    </div>
+    <form
+      id="blogForm"
+      action="/blog"
+      method="POST"
+      class="g-3 needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Blog Title</label>
+        <input
+          type="text"
+          id="title"
+          name="blog[title]"
+          class="form-control"
+          placeholder="Enter the blog title"
+          required
+        />
+        <div class="invalid-feedback">Please write a title</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Blog Image (Base64 String)</label>
+        <input
+          type="text"
+          id="image"
+          name="blog[image]"
+          class="form-control"
+          placeholder="Enter the blog image url"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Blog Description</label>
+        <textarea
+          id="description"
+          name="blog[description]"
+          class="form-control"
+          rows="5"
+          placeholder="Write the blog description"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please write a description</div>
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-danger">Create Blog</button>
+      </div>
+    </form>
+  </div>
+</div>
