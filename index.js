@@ -38,12 +38,6 @@ mongoose.connect(dbURL)
         console.error("Database connection failed!", err);
     });
 
-app.use((req, res, next) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.locals.currUser = req.user || null;
-    next();
-});
 
 const store = MongoStore.create({
     mongoUrl: dbURL,
@@ -71,6 +65,14 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success") || null;
+    res.locals.error = req.flash("error") || null;
+    res.locals.currUser = req.user || null;
+    next();
+});
+
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
