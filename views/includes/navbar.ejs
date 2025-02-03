@@ -23,11 +23,11 @@
       </ul>
     </li>
     <div class="navbar-nav ms-auto">
-      <%if(!currUser){%>
+      <%if(typeof currUser !== 'undefined' && !currUser){%>
       <a class="nav-link" href="/signup">signup</a>
       <a class="nav-link" href="/login">login</a>
       <%}%>
-      <%if(currUser){%>
+      <%if(typeof currUser !== 'undefined' && currUser){%>
       <a class="nav-link" href="/logout">logout</a>
       <%}%>
     </div>
